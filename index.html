@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lò Củi – Wood-fired Pizza</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#f7ead4;--fire:#ffa443;--brick:#3a2a24;--mortar:#17100d;--panel:#1a100c;--card:#241711;--line:#4d362a;color-scheme:dark;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;min-height:100%;color:var(--ink);font-family:Lora,Georgia,serif;overflow-x:hidden;background-color:var(--brick);
+background-image:linear-gradient(var(--mortar) 3px,transparent 3px),linear-gradient(90deg,var(--mortar) 3px,transparent 3px),linear-gradient(90deg,var(--mortar) 3px,transparent 3px);
+background-size:100% 36px,72px 72px,72px 72px;background-position:0 0,0 0,36px 36px}
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;overflow:hidden;background:radial-gradient(ellipse at 50% 45%,transparent 30%,rgba(8,4,2,.7) 100%)}
+header{width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 24px;position:relative;z-index:4}
+.logo{font-family:"Playfair Display",Georgia,serif;font-weight:800;font-size:24px;line-height:1}
+.logo small{display:block;font:italic 400 13px Lora,serif;opacity:.8;margin-top:4px}
+nav{display:flex;gap:18px;font-size:15px;align-items:center}
+nav a{color:var(--ink);text-decoration:none;opacity:.9}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{border:0;background:transparent;color:var(--ink);padding:6px 12px;font:500 13px Lora,serif}
+.lang button[aria-pressed="true"]{background:var(--fire);color:#2a1206}
+a:focus-visible,button:focus-visible{outline:3px solid var(--fire);outline-offset:3px}
+.mouth{position:absolute;left:50%;top:76px;transform:translateX(-50%);width:min(88vw,620px);height:min(66vh,520px);border-radius:999px 999px 0 0;
+background:radial-gradient(ellipse at 50% 80%,#ffc566 0%,#e0601c 26%,#7a280e 50%,#160a07 82%);box-shadow:inset 0 0 70px 20px #0b0504,0 0 0 14px #261a14,0 0 0 18px #120a07,0 0 130px 24px rgba(255,120,30,.3);z-index:1;animation:fl 3s ease-in-out infinite}
+@keyframes fl{50%{filter:brightness(1.14)}}
+.stage{position:relative;z-index:2;width:min(92vw,560px);margin-top:10vh}
+.float{animation:bob 4s ease-in-out 5s infinite}
+.sh{position:absolute;left:50%;bottom:-5%;width:72%;height:12%;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(0,0,0,.6),transparent 70%);animation:shb 4s ease-in-out 5s infinite}
+svg{display:block;width:100%;height:auto;overflow:visible}
+.cap{position:relative;z-index:4;text-align:center;margin-top:auto;padding:28px 20px 26px;background:linear-gradient(transparent,rgba(10,5,3,.9) 55%);width:100%}
+h1{font-family:"Playfair Display",Georgia,serif;font-weight:800;font-size:clamp(30px,6.5vw,52px);margin:0 0 4px;letter-spacing:.005em}
+.ln{font-style:italic;font-size:17px;margin:0 0 6px;color:var(--fire)}
+.cap .ds{margin:0 auto 16px;max-width:48ch;opacity:.9;font-size:16px;line-height:1.55}
+.row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+button{font:inherit;cursor:pointer}
+.btn{font:500 15px Lora,serif;border:0;border-radius:999px;padding:11px 24px;background:var(--fire);color:#2a1206}
+.btn.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.note{margin:10px 0 0;font-size:14px;opacity:.8}
+.em{position:absolute;bottom:20%;width:4px;height:4px;border-radius:50%;background:#ffb04a;opacity:0;z-index:3;animation:rise 4s linear infinite}
+@keyframes rise{0%{transform:translate(0,0);opacity:0}15%{opacity:.9}100%{transform:translate(var(--dx),-46vh);opacity:0}}
+.p{transform-box:fill-box;transform-origin:50% 50%;animation:pop .55s cubic-bezier(.3,1.5,.5,1) both}
+@keyframes pop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes shb{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(.86);opacity:.7}}
+body.calm .p,body.calm .float,body.calm .sh,body.calm .mouth{animation:none}
+body.calm .em{display:none}
+#menu{background:var(--panel);padding:60px 20px 76px;border-top:6px solid #261a14}
+.in{max-width:1080px;margin:0 auto}
+h2{font-family:"Playfair Display",Georgia,serif;font-weight:800;font-size:clamp(28px,5vw,42px);margin:0 0 6px}
+.sub{margin:0 0 30px;opacity:.8;font-style:italic}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.card{text-align:left;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px 18px;display:flex;flex-direction:column;gap:5px}
+.card[aria-pressed="true"]{border-color:var(--fire);box-shadow:0 0 0 1px var(--fire)}
+.th{padding:4px 8px 0}
+.card h3{font-family:"Playfair Display",Georgia,serif;font-weight:600;font-size:22px;margin:4px 0 0}
+.card em{font-size:14px;opacity:.7}
+.card p{margin:2px 0 0;font-size:15px;line-height:1.55;opacity:.88}
+.pr{margin-top:auto;padding-top:8px;font:600 18px "Playfair Display",serif;color:var(--fire)}
+footer{padding:22px;text-align:center;font-size:14px;opacity:.7;background:var(--panel)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<radialGradient id="crustG"><stop offset="0" stop-color="#f1cb82"/><stop offset=".72" stop-color="#dba352"/><stop offset="1" stop-color="#b57532"/></radialGradient>
+<radialGradient id="sauceG" cx=".4" cy=".35" r=".85"><stop offset="0" stop-color="#e84a2b"/><stop offset="1" stop-color="#a02012"/></radialGradient>
+<radialGradient id="creamG" cx=".4" cy=".35" r=".85"><stop offset="0" stop-color="#f8ecd2"/><stop offset="1" stop-color="#e4c995"/></radialGradient>
+<radialGradient id="chzG" cx=".4" cy=".35" r=".8"><stop offset="0" stop-color="#fff8e0"/><stop offset=".7" stop-color="#f9e0a0"/><stop offset="1" stop-color="#e8bc66"/></radialGradient>
+<radialGradient id="pepG" cx=".38" cy=".33" r=".75"><stop offset="0" stop-color="#de4d32"/><stop offset="1" stop-color="#8a1a10"/></radialGradient>
+<radialGradient id="salG" cx=".38" cy=".33" r=".75"><stop offset="0" stop-color="#b8402e"/><stop offset="1" stop-color="#651310"/></radialGradient>
+<radialGradient id="glossG" cx=".33" cy=".28" r=".7"><stop offset="0" stop-color="#fff2cf" stop-opacity=".3"/><stop offset=".6" stop-color="#fff2cf" stop-opacity="0"/></radialGradient>
+<linearGradient id="leafG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5cb257"/><stop offset="1" stop-color="#1f6a2a"/></linearGradient>
+<linearGradient id="shrG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb690"/><stop offset="1" stop-color="#e8744a"/></linearGradient>
+<linearGradient id="hamG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f9bcb8"/><stop offset="1" stop-color="#e18585"/></linearGradient>
+<linearGradient id="musG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5e9d3"/><stop offset="1" stop-color="#d3b789"/></linearGradient>
+<linearGradient id="rugG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#62b84e"/><stop offset="1" stop-color="#2d762d"/></linearGradient>
+</defs></svg>
+<section class="hero" id="hero">
+  <header>
+    <div class="logo">Lò Củi<small data-i="tag"></small></div>
+    <nav><a href="#menu" data-i="menu"></a><a href="#menu" data-i="res"></a>
+      <div class="lang" role="group" aria-label="Language"><button type="button" data-l="vi" aria-pressed="true">VI</button><button type="button" data-l="en" aria-pressed="false">EN</button></div>
+    </nav>
+  </header>
+  <div class="mouth" aria-hidden="true"></div>
+  <div class="stage"><div class="float" id="stage"></div><div class="sh"></div></div>
+  <div class="cap">
+    <h1 id="nm"></h1>
+    <p class="ln" data-i="line"></p>
+    <p class="ds" id="ds"></p>
+    <div class="row">
+      <button class="btn" id="again" type="button" data-i="again"></button>
+      <button class="btn alt" id="mo" type="button" aria-pressed="true"></button>
+    </div>
+    <p class="note" id="note" hidden data-i="note"></p>
+  </div>
+</section>
+<section id="menu"><div class="in">
+  <h2 data-i="h2"></h2><p class="sub" data-i="sub"></p><div class="grid" id="grid"></div>
+</div></section>
+<footer data-i="foot"></footer>
+<script>
+(function(){
+var S={vi:{tag:'Pizza nướng củi',menu:'Thực đơn',res:'Đặt bàn',line:'Bột ủ 48 giờ, nướng củi 90 giây.',again:'Làm lại',mo:'Chuyển động',on:'bật',off:'tắt',note:'Thiết bị của bạn đang tắt hiệu ứng. Bấm "Chuyển động" để bật.',h2:'Thực đơn pizza',sub:'Chọn một món, chiếc bánh phía trên sẽ được làm lại cho bạn xem.',foot:'Mở cửa 10:00 – 22:00 mỗi ngày',pz:'Pizza '},
+en:{tag:'Wood-fired pizzeria',menu:'Menu',res:'Reserve',line:'48-hour dough, fired in 90 seconds.',again:'Make it again',mo:'Motion',on:'on',off:'off',note:'Your device has animations turned off. Press "Motion" to turn them on.',h2:'Pizza menu',sub:'Pick a pizza and the one above is rebuilt for you.',foot:'Open daily 10:00 AM – 10:00 PM',pz:''}};
+var MENU=[
+{n:['Margherita','Margherita'],p:149,d:['Sốt cà chua, mozzarella tươi, húng quế. Món gốc, vị sạch và thơm.','Tomato sauce, fresh mozzarella and basil. The classic: clean, bright, fragrant.'],s:'sauceG',t:[['chz',52,6,0,19],['chz',98,3,30,15],['bas',60,5,20]]},
+{n:['Pepperoni','Pepperoni'],p:179,d:['Pepperoni giòn mép, phô mai kéo sợi, sốt cà chua đậm.','Crisp-edged pepperoni, stretchy mozzarella and a rich tomato sauce.'],s:'sauceG',t:[['chz',50,6,0,18],['chz',98,4,20,14],['pep',84,5,18],['pep',28,2,40]]},
+{n:['Nấm & phô mai','Mushroom & Cheese'],p:169,d:['Sốt kem trắng, nấm mỡ xào bơ, mozzarella béo mịn.','White cream base, butter-sautéed mushrooms and silky mozzarella.'],s:'creamG',t:[['chz',50,6,0,18],['chz',98,3,30,14],['mus',84,6,15],['mus',38,3,60]]},
+{n:['Hải sản','Seafood'],p:219,d:['Tôm, ô liu đen, húng quế trên nền sốt cà chua.','Shrimp, black olives and basil over tomato sauce.'],s:'sauceG',t:[['chz',52,6,0,18],['shr',84,6,10],['shr',40,3,50],['oli',104,6,30],['bas',62,3,60]]},
+{n:['Prosciutto & rucola','Prosciutto & Arugula'],p:199,d:['Thịt nguội thái mỏng, rau rucola tươi rắc sau khi nướng.','Thinly sliced cured ham with fresh arugula added after baking.'],s:'sauceG',t:[['chz',52,6,0,18],['chz',98,3,30,14],['ham',80,5,10],['rug',40,4,20],['rug',98,6,5]]},
+{n:['Diavola cay','Spicy Diavola'],p:189,d:['Salami cay, ớt tươi và ô liu. Dành cho người thích vị nồng.','Spicy salami, fresh chili and olives. For those who like heat.'],s:'sauceG',t:[['chz',52,5,0,18],['sal',84,5,18],['chi',58,6,30],['oli',102,6,10]]}
+];
+var L='vi',cur=0,calmQ=matchMedia('(prefers-reduced-motion: reduce)').matches,motion=!calmQ,ang=0,raf,spinEl,$=function(i){return document.getElementById(i)};
+function rn(i){return Math.abs(Math.sin(i*12.9898)*43758.5453)%1}
+function f(n){return n.toFixed(1)}
+function pol(r,a){a=a*Math.PI/180;return [r*Math.cos(a),r*Math.sin(a)]}
+function blob(r,sd,amp){var n=24,p=[],h1=rn(sd)*6.28,h2=rn(sd+7)*6.28,h3=rn(sd+13)*6.28,i,a,q,d;
+  for(i=0;i<n;i++){a=i/n*6.2832;q=r*(1+amp*(Math.sin(3*a+h1)*.5+Math.sin(5*a+h2)*.3+Math.sin(9*a+h3)*.2));p.push([q*Math.cos(a),q*Math.sin(a)])}
+  d='M'+f((p[n-1][0]+p[0][0])/2)+' '+f((p[n-1][1]+p[0][1])/2);
+  for(i=0;i<n;i++){var x=p[(i+1)%n];d+='Q'+f(p[i][0])+' '+f(p[i][1])+' '+f((p[i][0]+x[0])/2)+' '+f((p[i][1]+x[1])/2)}
+  return d+'Z'}
+function shape(t,k,gid){
+  if(t==='pep'||t==='sal')return '<circle r="23" fill="#ff8a2a" opacity=".15"/><path d="'+blob(19,k+9,.05)+'" fill="url(#'+gid+')" stroke="#5e1007" stroke-width="1.2"/><ellipse cx="-6" cy="-8" rx="7" ry="3" fill="#fff" opacity=".28" transform="rotate(-30)"/><circle cx="6" cy="5" r="2.2" fill="#f3a48a" opacity=".6"/><circle cx="-7" cy="6" r="1.8" fill="#f3a48a" opacity=".55"/><circle cx="5" cy="-8" r="1.6" fill="#f3a48a" opacity=".5"/>';
+  if(t==='bas')return '<path d="M-25 0C-15 -15 12 -15 25 0C12 15 -15 15 -25 0Z" fill="url(#leafG)"/><path d="M-23 0H23M-8 0L-14 -8M2 0L-4 -9M12 0L8 -7M-8 0L-14 8M2 0L-4 9M12 0L8 7" stroke="#a9de93" stroke-width="1.2" fill="none" opacity=".8"/><circle cx="9" cy="-4" r="2" fill="#2a3d12" opacity=".5"/>';
+  if(t==='mus')return '<ellipse rx="17" ry="12" fill="url(#musG)" stroke="#b99765"/><path d="M-9 -2Q0 6 9 -2M-7 3Q0 9 7 3" stroke="#bfa070" fill="none"/>';
+  if(t==='oli')return '<circle r="8.5" fill="#2b221d"/><circle r="3.2" fill="#7b5a38"/><ellipse cx="-3" cy="-4" rx="2.5" ry="1.2" fill="#fff" opacity=".35"/>';
+  if(t==='shr')return '<path d="M-17 5C-16 -11 12 -13 17 0C9 -3 -5 -2 -17 5Z" fill="url(#shrG)" stroke="#c4552f"/><path d="M-9 -4L-7 3M-1 -6L1 0M7 -4L8 1" stroke="#d6633a" stroke-width="1.6"/>';
+  if(t==='ham')return '<path d="M-24 0C-17 -13 -8 10 0 -2C8 -13 16 10 24 0C17 15 8 -6 0 7C-8 17 -17 -4 -24 0Z" fill="url(#hamG)" stroke="#d27578"/>';
+  if(t==='rug')return '<ellipse rx="10" ry="4" fill="url(#rugG)"/><ellipse rx="10" ry="4" fill="url(#rugG)" transform="rotate(60)"/><ellipse rx="10" ry="4" fill="url(#rugG)" transform="rotate(-60)"/>';
+  if(t==='chi')return '<circle r="6" fill="#e2231a"/><circle r="3" fill="#ff8f7a"/><circle cx="1" cy="-1" r=".9" fill="#f6e08a"/>';
+  return '';
+}
+function mk(rc,thumb){
+  var k=0,i,p;
+  function A(b){return thumb?'':' class="p" style="animation-delay:'+b.toFixed(2)+'s"'}
+  var s='<svg viewBox="-170 -130 340 270"'+(thumb?' aria-hidden="true"':' role="img" aria-label="Pizza '+rc.n[L==='vi'?0:1]+'"')+'><g transform="scale(1 .62)">';
+  s+='<g'+A(.3)+'><path transform="translate(0 20)" d="'+blob(132,1,.012)+'" fill="#8a5420"/></g>';
+  s+='<g'+(thumb?' transform="rotate(20)"':' id="spin"')+'><path'+A(.3)+' d="'+blob(132,1,.012)+'" fill="url(#crustG)"/>';
+  s+='<g'+A(.7)+'>';
+  for(i=0;i<22;i++){p=pol(117+rn(i+40)*11,rn(i)*360);var z=3+rn(i+80)*6;s+='<ellipse cx="'+f(p[0])+'" cy="'+f(p[1])+'" rx="'+f(z)+'" ry="'+f(z*.7)+'" fill="'+(i%3?'#7a4416':'#f7dc9f')+'" opacity=".55"/>'}
+  s+='</g><path'+A(1.2)+' d="'+blob(112,2,.015)+'" fill="url(#'+rc.s+')" stroke="rgba(70,20,5,.35)" stroke-width="2"/><g'+A(1.4)+'>';
+  var sp=rc.s==='creamG'?['#c9a56a','#3d6b2a','#fff']:['#7c150b','#3d6b2a','#f2a58b'];
+  for(i=0;i<34;i++){p=pol(rn(i+120)*100,rn(i+200)*360);s+='<circle cx="'+f(p[0])+'" cy="'+f(p[1])+'" r="'+f(1.4+rn(i+300)*2)+'" fill="'+sp[i%3]+'" opacity=".6"/>'}
+  s+='</g><path'+A(1.6)+' d="'+blob(100,3,.05)+'" fill="#fbe6ae" opacity=".32"/>';
+  rc.t.forEach(function(T){
+    for(var j=0;j<T[2];j++){
+      var q=pol(T[1],T[3]+j*360/T[2]),dl=Math.min(1.9+k*.085,4.6),body;k++;
+      if(T[0]==='chz')body='<g transform="translate('+f(q[0])+' '+f(q[1])+')"><path d="'+blob(T[4],k+5,.12)+'" fill="url(#chzG)" stroke="#e2b660" stroke-opacity=".7"/><circle cx="'+f((rn(k)-.5)*T[4]*.8)+'" cy="'+f((rn(k+9)-.5)*T[4]*.8)+'" r="3.5" fill="#c68a3c" opacity=".5"/></g>';
+      else body='<g transform="translate('+f(q[0])+' '+f(q[1])+') rotate('+Math.round(rn(k)*360)+')"><ellipse cx="2" cy="3" rx="16" ry="12" fill="#1a0602" opacity=".25"/>'+shape(T[0],k,T[4]||'pepG')+'</g>';
+      s+='<g'+A(dl)+'>'+body+'</g>';
+    }
+  });
+  return s+'</g><circle r="132" fill="url(#glossG)"/></g></svg>';
+}
+function tick(){if(spinEl&&motion){ang=(ang+.45)%360;spinEl.setAttribute('transform','rotate('+f(ang)+')')}raf=requestAnimationFrame(tick)}
+function start(){cancelAnimationFrame(raf);$('stage').innerHTML=mk(MENU[cur],false);spinEl=$('spin');ang=0;document.body.classList.toggle('calm',!motion);raf=requestAnimationFrame(tick)}
+function price(m){return L==='vi'?m.p+'.000₫':'₫'+m.p+',000'}
+function texts(){
+  var li=L==='vi'?0:1,m=MENU[cur];
+  document.documentElement.lang=L;
+  [].forEach.call(document.querySelectorAll('[data-i]'),function(e){e.textContent=S[L][e.getAttribute('data-i')]});
+  $('nm').textContent=S[L].pz+m.n[li];$('ds').textContent=m.d[li];
+  var b=$('mo');b.textContent=S[L].mo+': '+(motion?S[L].on:S[L].off);b.setAttribute('aria-pressed',motion);
+  $('note').hidden=motion||!calmQ;
+  [].forEach.call(document.querySelectorAll('.lang button'),function(x){x.setAttribute('aria-pressed',x.getAttribute('data-l')===L)});
+}
+function menu(){
+  var g=$('grid'),li=L==='vi'?0:1;g.innerHTML='';
+  MENU.forEach(function(m,i){
+    var b=document.createElement('button'),o=m.n[1-li];b.className='card';b.type='button';b.setAttribute('aria-pressed',i===cur);
+    b.innerHTML='<div class="th">'+mk(m,true)+'</div><h3>'+m.n[li]+'</h3>'+(o!==m.n[li]?'<em>'+o+'</em>':'')+'<p>'+m.d[li]+'</p><span class="pr">'+price(m)+'</span>';
+    b.addEventListener('click',function(){cur=i;texts();menu();start();window.scrollTo({top:0,behavior:motion?'smooth':'auto'})});
+    g.appendChild(b);
+  });
+}
+$('again').addEventListener('click',start);
+$('mo').addEventListener('click',function(){motion=!motion;texts();start()});
+[].forEach.call(document.querySelectorAll('.lang button'),function(x){x.addEventListener('click',function(){L=x.getAttribute('data-l');texts();menu();start()})});
+var h=$('hero');
+for(var e=0;e<14;e++){var sp=document.createElement('span');sp.className='em';sp.style.cssText='left:'+(30+rn(e+500)*40)+'%;--dx:'+Math.round((rn(e+600)-.5)*120)+'px;animation-delay:'+(rn(e+700)*4).toFixed(1)+'s;animation-duration:'+(3+rn(e+800)*3).toFixed(1)+'s';h.appendChild(sp)}
+texts();menu();start();
+})();
+</script>
+</body>
+</html>
